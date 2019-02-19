@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Time Tracker Login</title>
+<link rel="stylesheet" type="text/css" href="css/login_style.css">
+</head>
+
+<body>
+	<div class="loginBox">
+		<img src="img/users_2.png" class="user">
+		<h2>Willkommen</h2>
+		<form>
+			<input type="text" id="employeeId" placeholder="Benutzer ID"
+				onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+			<input type="password" id="password" placeholder="Passwort">
+			<button type="button" onclick="login()" value="Login">Anmelden</button>
+
+		</form>
+	</div>
+		<div id="copyright">
+			<p>&copy; NTTL - No Time To Lose. All rights reserved.</p>
+		</div>
+	
+	<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

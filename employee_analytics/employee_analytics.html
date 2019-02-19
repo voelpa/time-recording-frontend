@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dev Analysetools</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900"
+	rel="stylesheet" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/employee_analytics.js" type="text/javascript"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="row" id="header">
+			<div id="logo">
+				<h2 class="text-center">Analysetools für <b id="nameTag"></b></h2>
+			</div>
+			<div id="menu">
+				<!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
+				<nav class="navbar navbar-default">
+				<div class="container-fluid">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+
+						<!-- Button that toggles the navbar on and off on small screens -->
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+							<!-- Hides information from screen readers -->
+							<span class="sr-only"></span>
+
+							<!-- Draws 3 bars in navbar button when in small mode -->
+							<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+
+						<!-- You'll have to add padding in your image on the top and right of a few pixels (CSS Styling will break the navbar) -->
+						<a class="pull-left" href="#"><img src="img/logo.png" height="50" width="50"></a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="">Startseite <span
+									class="sr-only">(current)</span></a></li>
+							<li><a href="#" accesskey="1" id="analytics"
+								onclick="openTimeRecording()">Zeiterfassung </a></li>
+							<li><a href="#">Impressum</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">Kontaktiere uns <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Email</a></li>
+									<li><a href="#">Telefon</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">Terminanfrage</a></li>
+								</ul></li>
+							<li><a href="#" accesskey="1" onclick="openLogin()">Abmelden </a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="page">
+			<div id="page-wrapper">
+				<div
+					class="col-lg-6 col-lg-md-12 col-sm-12 col-xs-12 text-center top-buffer">
+					<div class="pboxA">
+						<label for="chart_1">Stunden pro Woche<label> <canvas
+									id="chart_1" width="400" height="400"></canvas>
+					</div>
+				</div>
+				<div
+					class="col-lg-6 col-lg-md-12 col-sm-12 col-xs-12 text-center top-buffer">
+					<div class="pboxB">
+						<label for="chart_2">Stunden pro Monat</label>
+						<canvas id="chart_2" width="400" height="400"></canvas>
+					</div>
+				</div>
+
+				<div
+					class="col-lg-6 col-lg-md-12 col-sm-12 col-xs-12 text-center top-buffer">
+					<div class="pboxA">
+						<label for="chart_4">Projektvergleich</label>
+						<canvas id="chart_4" width="400" height="400"></canvas>
+					</div>
+				</div>
+				<div
+					class="col-lg-6 col-lg-md-12 col-sm-12 col-xs-12 text-center top-buffer">
+					<div class="pboxB">
+						<label for="chart_5">Durschnittliche Arbeitsstunden</label>
+						<canvas id="chart_5" width="400" height="400"></canvas>
+					</div>
+				</div>
+				<div
+					class="col-lg-6 col-lg-offset-3 col-lg-md-12 col-sm-12 col-xs-12 text-center top-buffer">
+					<div class="pboxC">
+						<label for="chart_3">Stunden pro Projekt</label>
+						<canvas id="chart_3" width="400" height="400"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/requestscript_1.js" type="text/javascript">
+		
+	</script>
+
+	<script src="js/requestscript_2.js" type="text/javascript">
+		
+	</script>
+
+	<script src="js/requestscript_3.js" type="text/javascript">
+		
+	</script>
+
+	<script src="js/requestscript_4.js" type="text/javascript">
+		
+	</script>
+
+	<script src="js/requestscript_5.js" type="text/javascript">
+		
+	</script>
+
+</body>
+</html>

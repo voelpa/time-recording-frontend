@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>NTTL Zeiterfassung</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/collectionsjs@0.3.2/dist/collection.min.js"></script>
+	
+<script type="text/javascript" src="../login/js/login.js"></script>
+<script type="text/javascript" src="js/developer_view.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" /> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css" />
+
+<!-- <link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
+<link rel="stylesheet"
+	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" />
+<!-- <link href="default.css" rel="stylesheet" type="text/css" media="all" /> -->
+<!-- <link href="fonts.css" rel="stylesheet" type="text/css" media="all" /> -->
+</head>
+<body>
+	<div class="container">
+		<div id="header " class="row">
+			<!-- <div id="header" class="container"> -->
+			<div id="logo">
+				<h2 class="text-center">Willkommen, <b id="nameTag"></b>, bei Ihrem Zeiterfassungstool</h2>
+			</div>
+			<div id="menu">
+				<!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+
+							<!-- Button that toggles the navbar on and off on small screens -->
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse"
+								data-target="#bs-example-navbar-collapse-1"
+								aria-expanded="false">
+
+								<!-- Hides information from screen readers -->
+								<span class="sr-only"></span>
+
+								<!-- Draws 3 bars in navbar button when in small mode -->
+								<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+
+							<!-- You'll have to add padding in your image on the top and right of a few pixels (CSS Styling will break the navbar) -->
+							<a class="pull-left" href="#"><img src="img/logo.png"
+								height="50" width="50"></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse"
+							id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="">Startseite <span
+										class="sr-only">(current)</span></a></li>
+								<li><a href="#" accesskey="1" id="analytics"
+									onclick="openAnalytics()">Analysetools </a></li>
+								<li><a href="#">Impressum</a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-haspopup="true"
+									aria-expanded="false">Kontaktiere uns <span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Email</a></li>
+										<li><a href="#">Telefon</a></li>
+										<li role="separator" class="divider"></li>
+										<li><a href="#">Terminanfrage</a></li>
+									</ul></li>
+								<li><a href="#" accesskey="1" onclick="openLogin()">Abmelden </a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<br>
+			</div>
+		</div>
+		<form>
+		<div class="row" id="banner-wrapper">
+			<!-- <input type="text" id="calendar" placeholder="Pick a date" onfocus="(this.type='date')" required="required"/> -->
+			<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>
+
+				<div class='input-group date' id='datetimepicker1'>
+					<input type='text' class="form-control" placeholder="Wähle Datum" />
+					<span class="input-group-addon"> <span
+						class="glyphicon glyphicon-calendar"></span>
+					</span>
+				</div>
+			</div>
+			<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>
+				<!-- <div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle btn-md"
+						type="button" id="dropdownMenu1" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="true">
+						Choose Project <span class="caret"></span>
+					</button> -->
+				<select id="project_select" class="form-control">
+					<option value="" selected disabled>Wähle Projekt...</option>
+				</select>
+				<!-- 				</div> -->
+			</div>
+			<div class='clearfix visible-sm'></div>
+			<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+				<input type="text" pattern=".{3,}" required class="form-control" id="task"
+					placeholder="Aufgabe" />
+			</div>
+			<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>
+				<input type="number" class="form-control bfh-number"
+					id="hours_field" placeholder="Stunden" min="0" max="24" required />
+			</div>
+			<div class='col-lg-2 col-md-4 col-sm-6 col-xs-12'>
+				<input type="number" class="form-control bfh-number"
+					id="minutes_field" placeholder="Minuten" min="0" max="45"
+					step="15" onkeydown="return false" />
+			</div>
+			<div class='col-lg-1 col-md-4 col-sm-6 col-xs-12'>
+				<button type="button" class="btn" id="add_btn" onclick="addDataToTable()">Add</button>
+			</div>
+		</div>
+		</form>
+		<div class="row top-buffer" id="output_insertedData">
+			<!-- <div id="output_data1"></div> -->
+<!-- 			<h2 class="text-center">Recently added Time Recordings</h2> -->
+<!-- 			<p class="text-center">Here you can check and delete your recent -->
+<!-- 				time records...</p> -->
+			<table class="table" id="tableId">
+				<thead>
+					<tr>
+						<th>Datum</th>
+						<th>Projekt</th>
+						<th>Aufgabe</th>
+						<th>Aufwand (in St)</th>
+						<th>Löschen</th>
+					</tr>
+				</thead>
+				<tbody id="output_data1"></tbody>
+			</table>
+		</div>
+		<div class="row top-buffer text-center" id="finalizeButton">
+			<button type="button" class="btn" id="finalize_btn" onclick="postData()">Finalisieren</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(function() {
+		$('#datetimepicker1').datetimepicker({
+			format : 'DD/MM/YYYY',
+			maxDate : 'now'
+		});
+	});
+</script>
+</html>
